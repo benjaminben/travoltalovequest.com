@@ -2,6 +2,7 @@
 $color-glow: rgba(253,155,39,1);
 $rotate-desktop: rotateY(40deg);
 $rotate-mobile: rotateX(-20deg);
+$anim-turn-length: 3s;
 
 html, body {
   width: 100%;
@@ -36,10 +37,13 @@ main {
 #john {
   position: absolute;
   right: 0; bottom: 0;
-  transform: scaleX(-1);
   width: 90%; max-width: 450px;
   cursor: pointer;
-  img { width: 100%; }
+  img { width: 100%;
+    &:nth-of-type(1) { opacity: 0; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; animation: turn1 $anim-turn-length steps(1); }
+    &:nth-of-type(2) {
+      animation: turn2 $anim-turn-length steps(1); } }
 }
 
 #vid {
@@ -48,17 +52,19 @@ main {
   width: 33%;
   padding-bottom: 18.56%;
   perspective: 1000px;
+  animation: fade-in 3s ease;
   iframe { width: 100%; height: 100%; background: black;
     position: absolute; top: 0; left: 0;
-    transform: $rotate-desktop; opacity: 0; transition: opacity 1s; }
+    transform: $rotate-desktop; }
   &:before { content: ""; position: absolute; top: 0; left: 0;
     width: 100%; height: 100%; background: $color-glow;
     box-shadow: 0px 0px 25px 10px $color-glow; opacity: 0;
-    transform: $rotate-desktop; transition: opacity 1s; }
-  &.ready {
-    iframe { opacity: 1; }
-    &:before { animation: glow 1s ease infinite alternate; opacity: 1; }
-  }
+    transform: $rotate-desktop;
+    animation: glow 3s ease infinite alternate; }
+}
+
+body.loading {
+  #cave, #fire, #john, #vid { display: none; }
 }
 
 @media screen and (max-width: 600px) {
@@ -71,6 +77,21 @@ main {
   }
 }
 
+@keyframes fade-in {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
 @keyframes glow {
   to { box-shadow: 0px 0px 10px 2px $color-glow; }
+}
+
+@keyframes turn1 {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes turn2 {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
 }

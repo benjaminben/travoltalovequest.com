@@ -17,9 +17,14 @@ john.addEventListener("click", () => player.playVideo())
 
 function onPlayerReady(event) {
   console.log('player ready')
-  document.querySelector("#vid").className += " ready"
+  // document.querySelector("#vid").className += " ready"
+  loaded()
 }
 
 function onPlayerStateChange(event) {
   console.log('player state change', event.data)
+}
+
+function loaded() {
+  document.body.className = document.body.className.replace(/loading/, "")
 }

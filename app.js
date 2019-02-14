@@ -3835,7 +3835,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/app */ \"./src/js/app.js\");\n/* harmony import */ var _js_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_app__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/app */ \"./src/js/app.js\");\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -3854,10 +3854,23 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /*!***********************!*\
   !*** ./src/js/app.js ***!
   \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("console.log(\"Hello travoltalovequest-com\");\n\n//# sourceURL=webpack:///./src/js/app.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _yt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yt */ \"./src/js/yt.js\");\n\nvar tag = document.createElement('script'),\n    vidId = \"CBc9uL4n6S0\",\n    player;\ntag.src = \"https://www.youtube.com/iframe_api\";\nvar firstScriptTag = document.getElementsByTagName('script')[0];\nfirstScriptTag.parentNode.insertBefore(tag, firstScriptTag);\n\nwindow.onYouTubeIframeAPIReady = function () {\n  player = Object(_yt__WEBPACK_IMPORTED_MODULE_0__[\"makePlayerFromId\"])(vidId);\n};\n\ndocument.getElementById(\"john\");\njohn.addEventListener(\"click\", function () {\n  return player.playVideo();\n});\n\n//# sourceURL=webpack:///./src/js/app.js?");
+
+/***/ }),
+
+/***/ "./src/js/yt.js":
+/*!**********************!*\
+  !*** ./src/js/yt.js ***!
+  \**********************/
+/*! exports provided: makePlayerFromId */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makePlayerFromId\", function() { return makePlayerFromId; });\nfunction makePlayerFromId(id) {\n  var player = new YT.Player(\"yt\", {\n    height: '100%',\n    width: '100%',\n    videoId: id,\n    events: {\n      'onReady': onPlayerReady,\n      'onStateChange': onPlayerStateChange\n    }\n  });\n  return player;\n}\n\nfunction onPlayerReady(event) {\n  console.log('player ready');\n}\n\nfunction onPlayerStateChange(event) {\n  console.log('player state change', event.data);\n}\n\n\n\n//# sourceURL=webpack:///./src/js/yt.js?");
 
 /***/ }),
 

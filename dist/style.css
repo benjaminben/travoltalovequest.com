@@ -109,6 +109,57 @@
       -ms-user-select: none;
           user-select: none; }
 
+html, body {
+  width: 100%;
+  height: 100%; }
+
 body {
-  background: pink; }
+  background: black;
+  overflow: hidden; }
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+#fire {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+
+#cave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center; }
+
+#john {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  width: 90%;
+  max-width: 450px; }
+  #john img {
+    width: 100%; }
+
+#vid {
+  position: absolute;
+  top: 20%;
+  left: 2em;
+  height: auto;
+  -webkit-perspective: 1000px;
+          perspective: 1000px; }
+  #vid iframe {
+    width: 100%;
+    height: auto;
+    -webkit-transform: rotateY(40deg);
+            transform: rotateY(40deg);
+    box-shadow: 0px 0px 10px 4px #fd9b27; }
 

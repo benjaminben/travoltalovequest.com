@@ -142,13 +142,23 @@ main {
   position: absolute;
   right: 0;
   bottom: 0;
-  -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
   width: 90%;
   max-width: 450px;
   cursor: pointer; }
   #john img {
     width: 100%; }
+    #john img:nth-of-type(1) {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-animation: turn1 3s steps(1);
+              animation: turn1 3s steps(1); }
+    #john img:nth-of-type(2) {
+      -webkit-animation: turn2 3s steps(1);
+              animation: turn2 3s steps(1); }
 
 #vid {
   position: absolute;
@@ -157,7 +167,9 @@ main {
   width: 33%;
   padding-bottom: 18.56%;
   -webkit-perspective: 1000px;
-          perspective: 1000px; }
+          perspective: 1000px;
+  -webkit-animation: fade-in 3s ease;
+          animation: fade-in 3s ease; }
   #vid iframe {
     width: 100%;
     height: 100%;
@@ -166,9 +178,7 @@ main {
     top: 0;
     left: 0;
     -webkit-transform: rotateY(40deg);
-            transform: rotateY(40deg);
-    opacity: 0;
-    transition: opacity 1s; }
+            transform: rotateY(40deg); }
   #vid:before {
     content: "";
     position: absolute;
@@ -181,13 +191,11 @@ main {
     opacity: 0;
     -webkit-transform: rotateY(40deg);
             transform: rotateY(40deg);
-    transition: opacity 1s; }
-  #vid.ready iframe {
-    opacity: 1; }
-  #vid.ready:before {
-    -webkit-animation: glow 1s ease infinite alternate;
-            animation: glow 1s ease infinite alternate;
-    opacity: 1; }
+    -webkit-animation: glow 3s ease infinite alternate;
+            animation: glow 3s ease infinite alternate; }
+
+body.loading #cave, body.loading #fire, body.loading #john, body.loading #vid {
+  display: none; }
 
 @media screen and (max-width: 600px) {
   #vid {
@@ -202,6 +210,18 @@ main {
       -webkit-transform: rotateX(-20deg);
               transform: rotateX(-20deg); } }
 
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
 @-webkit-keyframes glow {
   to {
     box-shadow: 0px 0px 10px 2px #fd9b27; } }
@@ -209,4 +229,28 @@ main {
 @keyframes glow {
   to {
     box-shadow: 0px 0px 10px 2px #fd9b27; } }
+
+@-webkit-keyframes turn1 {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+
+@keyframes turn1 {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+
+@-webkit-keyframes turn2 {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
+
+@keyframes turn2 {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
 

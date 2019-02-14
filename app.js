@@ -3858,7 +3858,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _yt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yt */ \"./src/js/yt.js\");\n\nvar tag = document.createElement('script'),\n    vidId = \"CBc9uL4n6S0\",\n    player;\ntag.src = \"https://www.youtube.com/iframe_api\";\nvar firstScriptTag = document.getElementsByTagName('script')[0];\nfirstScriptTag.parentNode.insertBefore(tag, firstScriptTag);\n\nwindow.onYouTubeIframeAPIReady = function () {\n  player = Object(_yt__WEBPACK_IMPORTED_MODULE_0__[\"makePlayerFromId\"])(vidId);\n};\n\ndocument.getElementById(\"john\");\njohn.addEventListener(\"click\", function () {\n  return player.playVideo();\n});\n\n//# sourceURL=webpack:///./src/js/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _yt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yt */ \"./src/js/yt.js\");\n\nvar tag = document.createElement('script'),\n    vidId = \"CBc9uL4n6S0\",\n    player;\ntag.src = \"https://www.youtube.com/iframe_api\";\nvar firstScriptTag = document.getElementsByTagName('script')[0];\nfirstScriptTag.parentNode.insertBefore(tag, firstScriptTag);\n\nwindow.onYouTubeIframeAPIReady = function () {\n  player = Object(_yt__WEBPACK_IMPORTED_MODULE_0__[\"makePlayerFromId\"])(vidId, onPlayerReady, onPlayerStateChange);\n};\n\ndocument.getElementById(\"john\");\njohn.addEventListener(\"click\", function () {\n  return player.playVideo();\n});\n\nfunction onPlayerReady(event) {\n  console.log('player ready');\n  document.querySelector(\"#vid\").className += \" ready\";\n}\n\nfunction onPlayerStateChange(event) {\n  console.log('player state change', event.data);\n}\n\n//# sourceURL=webpack:///./src/js/app.js?");
 
 /***/ }),
 
@@ -3870,7 +3870,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _yt_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makePlayerFromId\", function() { return makePlayerFromId; });\nfunction makePlayerFromId(id) {\n  var player = new YT.Player(\"yt\", {\n    height: '100%',\n    width: '100%',\n    videoId: id,\n    events: {\n      'onReady': onPlayerReady,\n      'onStateChange': onPlayerStateChange\n    }\n  });\n  return player;\n}\n\nfunction onPlayerReady(event) {\n  console.log('player ready');\n}\n\nfunction onPlayerStateChange(event) {\n  console.log('player state change', event.data);\n}\n\n\n\n//# sourceURL=webpack:///./src/js/yt.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"makePlayerFromId\", function() { return makePlayerFromId; });\nfunction makePlayerFromId(id, readyCb, stateCb) {\n  var player = new YT.Player(\"yt\", {\n    height: '100%',\n    width: '100%',\n    videoId: id,\n    events: {\n      'onReady': readyCb,\n      'onStateChange': stateCb\n    }\n  });\n  return player;\n}\n\n\n\n//# sourceURL=webpack:///./src/js/yt.js?");
 
 /***/ }),
 

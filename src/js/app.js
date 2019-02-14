@@ -9,8 +9,17 @@ var firstScriptTag = document.getElementsByTagName('script')[0]
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
 
 window.onYouTubeIframeAPIReady = () => {
-  player = makePlayerFromId(vidId)
+  player = makePlayerFromId(vidId, onPlayerReady, onPlayerStateChange)
 }
 
 document.getElementById("john")
 john.addEventListener("click", () => player.playVideo())
+
+function onPlayerReady(event) {
+  console.log('player ready')
+  document.querySelector("#vid").className += " ready"
+}
+
+function onPlayerStateChange(event) {
+  console.log('player state change', event.data)
+}

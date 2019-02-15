@@ -238,7 +238,12 @@ main {
 body.loading #loader {
   display: block; }
 
-body.loading #cave, body.loading #fire, body.loading #john, body.loading #vid {
+body.loading #cave {
+  opacity: 0;
+  -webkit-animation: none;
+          animation: none; }
+
+body.loading #fire, body.loading #john, body.loading #vid {
   display: none; }
 
 @media screen and (max-width: 600px) {
@@ -323,37 +328,37 @@ body.loading #cave, body.loading #fire, body.loading #john, body.loading #vid {
 
 @-webkit-keyframes loader_cow_orbit {
   0% {
-    top: 0%;
-    left: 20%;
+    -webkit-transform: translate(20px, 0px);
+            transform: translate(20px, 0px);
     z-index: 1; }
   49% {
     z-index: 1; }
   50% {
-    top: 80%;
-    left: 60%;
+    -webkit-transform: translate(80px, 60px);
+            transform: translate(80px, 60px);
     z-index: 0; }
   99% {
     z-index: 0; }
   100% {
-    top: 0%;
-    left: 20%;
+    -webkit-transform: translate(20px, 0px);
+            transform: translate(20px, 0px);
     z-index: 1; } }
 
 @keyframes loader_cow_orbit {
   0% {
-    top: 0%;
-    left: 20%;
+    -webkit-transform: translate(20px, 0px);
+            transform: translate(20px, 0px);
     z-index: 1; }
   49% {
     z-index: 1; }
   50% {
-    top: 80%;
-    left: 60%;
+    -webkit-transform: translate(80px, 60px);
+            transform: translate(80px, 60px);
     z-index: 0; }
   99% {
     z-index: 0; }
   100% {
-    top: 0%;
-    left: 20%;
+    -webkit-transform: translate(20px, 0px);
+            transform: translate(20px, 0px);
     z-index: 1; } }
 

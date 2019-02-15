@@ -1,5 +1,5 @@
 @import './global';
-$color-glow: rgba(253,155,39,1);
+$color-glow: #fdb536;
 $rotate-desktop: rotateY(40deg);
 $rotate-mobile: rotateX(-20deg);
 $anim-john-enter-length: 1s;
@@ -89,6 +89,10 @@ body.loading {
 }
 
 @media screen and (max-width: 600px) {
+  #fire {
+    transform: translate(-60%, -50%);
+  }
+
   #vid {
     left: 10%; top: 2em;
     width: 66%;

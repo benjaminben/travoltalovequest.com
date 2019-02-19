@@ -1,18 +1,4 @@
-import {makePlayerFromId} from './yt'
-
-var tag = document.createElement('script'),
-    vidId = "CBc9uL4n6S0",
-    player,
-    playerLoaded,
-    windowLoaded
-
-tag.src = "https://www.youtube.com/iframe_api"
-var firstScriptTag = document.getElementsByTagName('script')[0]
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
-
-window.onYouTubeIframeAPIReady = () => {
-  player = makePlayerFromId(vidId, onPlayerReady, onPlayerStateChange)
-}
+var windowLoaded
 
 window.addEventListener("load", () => {
   windowLoaded = true
@@ -20,7 +6,6 @@ window.addEventListener("load", () => {
 })
 
 document.getElementById("john")
-john.addEventListener("click", () => player.playVideo())
 
 function onPlayerReady(event) {
   console.log('player ready')
@@ -33,9 +18,7 @@ function onPlayerStateChange(event) {
 }
 
 function attemptLoaded() {
-  if (playerLoaded && windowLoaded) {
-    loaded()
-  }
+  if (windowLoaded) {loaded()}
 }
 
 function loaded() {

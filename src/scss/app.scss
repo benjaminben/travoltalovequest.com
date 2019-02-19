@@ -45,7 +45,7 @@ main {
   position: absolute;
   right: 0; bottom: 0;
   width: 90%; max-width: 450px;
-  cursor: pointer;
+  // cursor: pointer;
   transform-origin: top left;
   animation: scale-down-in $anim-john-enter-length ease both;
   animation-delay: $anim-fire-length + $anim-cave-length / 2;

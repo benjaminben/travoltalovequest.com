@@ -151,7 +151,6 @@ main {
   bottom: 0;
   width: 90%;
   max-width: 450px;
-  cursor: pointer;
   -webkit-transform-origin: top left;
           transform-origin: top left;
   -webkit-animation: scale-down-in 1s ease both;

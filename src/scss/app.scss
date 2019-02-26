@@ -24,11 +24,16 @@ main {
   width: 100%;
   height: 100%; }
 
-#fire {
+.fire {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   animation: fade-in $anim-fire-length ease both; }
+
+  img.fire {
+    display: none;
+    &.active { display: block; } }
+
 
 #cave {
   position: absolute;
@@ -83,10 +88,10 @@ main {
 body.loading {
   #loader { display: block; }
   #cave { opacity: 0; animation: none; }
-  #fire, #john, #vid { display: none; } }
+  .fire, #john, #vid { display: none; } }
 
 @media screen and (max-width: 600px) {
-  #fire {
+  .fire {
     transform: translate(-60%, -50%); }
   #john {
     bottom: -1em; }

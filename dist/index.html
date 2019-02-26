@@ -25,6 +25,16 @@
 
   <meta property="og:site_name" content="Travolta Love Quest">
   <meta name="twitter:image:alt" content="Complete The Quest">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65533923-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-65533923-4');
+  </script>
 </head>
 <body>
   <script>document.body.className += " loading"</script>
@@ -36,7 +46,8 @@
     <svg id="set" viewBox="0 0 1280 720">
 
     </svg>
-    <img id="fire" src="assets/images/fire.gif" />
+    <img class="fire" src="assets/images/fire.gif" />
+    <video class="fire" muted playsinline autoplay loop src="assets/images/fire.mp4"></video>
     <div id="cave" style="background-image: url('assets/images/cave.png');"></div>
     <div id="vid">
       <div id="yt">

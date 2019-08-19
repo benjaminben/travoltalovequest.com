@@ -127,8 +127,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   -webkit-animation: fade-in 1s ease both;
           animation: fade-in 1s ease both; }
 
@@ -156,8 +155,7 @@ img.fire {
   bottom: 0;
   width: 90%;
   max-width: 450px;
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
+  transform-origin: top left;
   -webkit-animation: scale-down-in 1s ease both;
           animation: scale-down-in 1s ease both;
   -webkit-animation-delay: 1.5s;
@@ -187,8 +185,7 @@ img.fire {
   left: 2em;
   width: 33%;
   padding-bottom: 18.56%;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
+  perspective: 1000px;
   -webkit-animation: fade-in 3s ease both;
           animation: fade-in 3s ease both;
   -webkit-animation-delay: 2.5s;
@@ -203,8 +200,7 @@ img.fire {
     position: absolute;
     top: 0;
     left: 0;
-    -webkit-transform: rotateY(40deg);
-            transform: rotateY(40deg);
+    transform: rotateY(40deg);
     z-index: 1; }
   #vid:before {
     content: "";
@@ -213,11 +209,9 @@ img.fire {
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-transform-origin: center;
-            transform-origin: center;
+    transform-origin: center;
     opacity: 1;
-    -webkit-transform: rotateY(40deg);
-            transform: rotateY(40deg);
+    transform: rotateY(40deg);
     box-shadow: 0px 0px 4em 16px #fdb536;
     -webkit-animation: glow 2s ease infinite alternate;
             animation: glow 2s ease infinite alternate; }
@@ -230,8 +224,7 @@ img.fire {
   top: 50%;
   left: 50%;
   display: none;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%); }
   #loader .text {
     position: relative;
     z-index: 1;
@@ -255,10 +248,26 @@ body.loading #cave {
 body.loading .fire, body.loading #john, body.loading #vid {
   display: none; }
 
+body.fullscreen #cave {
+  display: opacity; }
+
+body.fullscreen .fire {
+  display: opacity; }
+
+body.fullscreen #vid {
+  position: relative;
+  z-index: 10000; }
+  body.fullscreen #vid iframe {
+    position: relative;
+    transform: none; }
+  body.fullscreen #vid:before {
+    -webkit-animation: none;
+            animation: none;
+    opacity: 0; }
+
 @media screen and (max-width: 600px) {
   .fire {
-    -webkit-transform: translate(-60%, -50%);
-            transform: translate(-60%, -50%); }
+    transform: translate(-60%, -50%); }
   #john {
     bottom: -1em; }
   #vid {
@@ -267,11 +276,9 @@ body.loading .fire, body.loading #john, body.loading #vid {
     width: 66%;
     padding-bottom: 37.125%; }
     #vid iframe {
-      -webkit-transform: rotateX(-20deg);
-              transform: rotateX(-20deg); }
+      transform: rotateX(-20deg); }
     #vid:before {
-      -webkit-transform: rotateX(-20deg);
-              transform: rotateX(-20deg);
+      transform: rotateX(-20deg);
       box-shadow: 0px 0px 4em 16px #fdb536; } }
 
 @-webkit-keyframes fade-in {
@@ -289,22 +296,18 @@ body.loading .fire, body.loading #john, body.loading #vid {
 @-webkit-keyframes scale-down-in {
   from {
     opacity: 0;
-    -webkit-transform: scale(1.33);
-            transform: scale(1.33); }
+    transform: scale(1.33); }
   to {
     opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
+    transform: scale(1); } }
 
 @keyframes scale-down-in {
   from {
     opacity: 0;
-    -webkit-transform: scale(1.33);
-            transform: scale(1.33); }
+    transform: scale(1.33); }
   to {
     opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
+    transform: scale(1); } }
 
 @-webkit-keyframes pulse {
   0% {
@@ -348,14 +351,12 @@ body.loading .fire, body.loading #john, body.loading #vid {
 
 @-webkit-keyframes glow-after {
   100% {
-    -webkit-transform: rotateY(40deg) scale(1.2);
-            transform: rotateY(40deg) scale(1.2);
+    transform: rotateY(40deg) scale(1.2);
     opacity: 0; } }
 
 @keyframes glow-after {
   100% {
-    -webkit-transform: rotateY(40deg) scale(1.2);
-            transform: rotateY(40deg) scale(1.2);
+    transform: rotateY(40deg) scale(1.2);
     opacity: 0; } }
 
 @-webkit-keyframes turn1 {
@@ -384,37 +385,31 @@ body.loading .fire, body.loading #john, body.loading #vid {
 
 @-webkit-keyframes loader_cow_orbit {
   0% {
-    -webkit-transform: translate(20px, 0px);
-            transform: translate(20px, 0px);
+    transform: translate(20px, 0px);
     z-index: 1; }
   49% {
     z-index: 1; }
   50% {
-    -webkit-transform: translate(80px, 60px);
-            transform: translate(80px, 60px);
+    transform: translate(80px, 60px);
     z-index: 0; }
   99% {
     z-index: 0; }
   100% {
-    -webkit-transform: translate(20px, 0px);
-            transform: translate(20px, 0px);
+    transform: translate(20px, 0px);
     z-index: 1; } }
 
 @keyframes loader_cow_orbit {
   0% {
-    -webkit-transform: translate(20px, 0px);
-            transform: translate(20px, 0px);
+    transform: translate(20px, 0px);
     z-index: 1; }
   49% {
     z-index: 1; }
   50% {
-    -webkit-transform: translate(80px, 60px);
-            transform: translate(80px, 60px);
+    transform: translate(80px, 60px);
     z-index: 0; }
   99% {
     z-index: 0; }
   100% {
-    -webkit-transform: translate(20px, 0px);
-            transform: translate(20px, 0px);
+    transform: translate(20px, 0px);
     z-index: 1; } }
 

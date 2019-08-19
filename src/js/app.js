@@ -1,42 +1,52 @@
-init()
+import {makePlayerFromId} from './yt'
 
-function init() {
-  const support = checkSupport()
-  if (!support.mp4) {useGif()}
-  window.addEventListener("load", () => {
-    loaded()
-  })
+var tag = document.createElement('script'),
+    vidId = "CBc9uL4n6S0",
+    player,
+    playerLoaded,
+    windowLoaded
+
+tag.src = "https://www.youtube.com/iframe_api"
+var firstScriptTag = document.getElementsByTagName('script')[0]
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+
+window.onYouTubeIframeAPIReady = () => {
+  player = makePlayerFromId(vidId, onPlayerReady, onPlayerStateChange)
+  document.addEventListener("webkitfullscreenchange", handleFullScreen)
 }
 
-function onPlayerStateChange(event) {
-  console.log('player state change', event.data)
-}
+window.addEventListener("load", () => {
+  windowLoaded = true
+  attemptLoaded()
+})
 
-function loaded() {
-  document.body.className = document.body.className.replace(/loading/, "")
-}
+document.getElementById("john")
+john.addEventListener("click", () => player.playVideo())
 
-function useGif() {
-  document.querySelector("img.fire").className += " active"
-  document.querySelector("video.fire").className += " none"
-}
-
-function checkSupport() {
-  var support = {}
-  var v = document.createElement('video');
-  if(v.canPlayType && v.canPlayType('video/mp4').replace(/no/, '')) {
-      support.mp4 = true;
+function handleFullScreen(e) {
+  if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement) {
+    document.body.className = document.body.className + " fullscreen"
+  } else {
+    document.body.className = document.body.className.replace(/ fullscreen/, "")
   }
-  return support
 }
 
-//LEGACY
 function onPlayerReady(event) {
   console.log('player ready')
   playerLoaded = true
   attemptLoaded()
 }
 
-function attemptLoaded(win, player) {
-  if (win && player) {loaded()}
+function onPlayerStateChange(event) {
+  console.log('player state change', event.data)
+}
+
+function attemptLoaded() {
+  if (playerLoaded && windowLoaded) {
+    loaded()
+  }
+}
+
+function loaded() {
+  document.body.className = document.body.className.replace(/loading/, "")
 }

@@ -90,6 +90,15 @@ body.loading {
   #cave { opacity: 0; animation: none; }
   .fire, #john, #vid { display: none; } }
 
+body.fullscreen {
+  #cave { display: opacity; }
+  .fire { display: opacity; }
+  #vid {
+    position: relative; z-index: 10000;
+    iframe { position: relative; transform: none; }
+    &:before { animation: none; opacity: 0; } }
+}
+
 @media screen and (max-width: 600px) {
   .fire {
     transform: translate(-60%, -50%); }
